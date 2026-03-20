@@ -8,18 +8,36 @@
         :root { --primary: #0f0f1e; --dark: #05050a; --accent: #e94560; --gold: #f4a261; --text-main: #ffffff; --text-muted: rgba(255, 255, 255, 0.6); --font-serif: "Songti SC", "STSong", "SimSun", serif; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, "PingFang SC", sans-serif; background-color: var(--primary); color: var(--text-main); line-height: 1.6; }
-        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(10, 10, 20, 0.9); backdrop-filter: blur(15px); padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(10, 10, 20, 0.95); backdrop-filter: blur(15px); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 clamp(20px, 5vw, 40px); }
-        .logo { display: flex; align-items: center; gap: 12px; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; font-size: clamp(1.2rem, 4vw, 2.2rem); font-weight: 900; letter-spacing: 1px; }
-        .logo img { width: clamp(40px, 10vw, 55px); height: clamp(40px, 10vw, 55px); border-radius: 12px; border: 2px solid var(--accent); object-fit: cover; }
+        .logo { display: flex; align-items: center; gap: 12px; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; font-size: clamp(1rem, 3vw, 1.8rem); font-weight: 900; letter-spacing: 1px; }
+        .logo img { width: clamp(35px, 8vw, 45px); height: clamp(35px, 8vw, 45px); border-radius: 10px; border: 2px solid var(--accent); object-fit: cover; }
         .logo span { color: var(--accent); margin-left: 5px; }
-        .hero { min-height: 100vh; background: radial-gradient(circle at center, #1a1a3a 0%, var(--dark) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 140px 40px 80px; }
-        .hero-main { text-align: center; max-width: 800px; margin-bottom: 60px; }
-        .hero-main h1 { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; font-size: clamp(2rem, 8vw, 4.5rem); margin-bottom: 20px; font-weight: 900; line-height: 1.2; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .hero { min-height: 100vh; background: radial-gradient(circle at center, #1a1a3a 0%, var(--dark) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 40px 80px; }
+        .hero-main { text-align: center; max-width: 800px; margin-bottom: 40px; }
+        .hero-main h1 { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 20px; font-weight: 900; line-height: 1.2; }
         .hero-main h1 span { color: var(--accent); }
-        .hero-main p { font-size: 1.2rem; letter-spacing: 5px; color: var(--text-muted); margin-bottom: 35px; }
-        .btn-action { background: var(--accent); color: white; border: none; padding: 20px 60px; font-size: 1.3rem; cursor: pointer; border-radius: 50px; transition: 0.3s; font-weight: bold; text-decoration: none; display: inline-block; }
+        .hero-main p { font-size: 1.1rem; letter-spacing: 4px; color: var(--text-muted); margin-bottom: 30px; }
+        .btn-action { background: var(--accent); color: white; border: none; padding: 18px 50px; font-size: 1.2rem; cursor: pointer; border-radius: 50px; transition: 0.3s; font-weight: bold; text-decoration: none; display: inline-block; }
         .btn-action:hover { box-shadow: 0 0 30px rgba(233, 69, 96, 0.6); transform: scale(1.05); }
+        
+        /* 价格卡片区 */
+        .pricing-section { padding: 80px 20px; background: #0a0a15; }
+        .pricing-section h2 { text-align: center; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 40px; }
+        .pricing-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .price-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; text-align: center; transition: 0.3s; }
+        .price-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .price-card h3 { font-size: 1.2rem; margin-bottom: 15px; }
+        .price-card .price { font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 15px; }
+        .price-card .price span { font-size: 0.9rem; color: var(--text-muted); }
+        .price-card ul { list-style: none; text-align: left; margin-bottom: 20px; }
+        .price-card li { padding: 8px 0; color: var(--text-muted); font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .price-card .order-btn { width: 100%; padding: 12px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+        .price-card .order-btn:hover { opacity: 0.8; }
+        
         .portfolio-section { width: 100%; max-width: 1400px; margin-top: 60px; padding: 0 20px; }
         .portfolio-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
         .tab-btn { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-muted); padding: 12px 30px; border-radius: 30px; cursor: pointer; transition: 0.3s; font-size: 0.95rem; }
@@ -35,111 +53,191 @@
         .portfolio-tag { color: var(--accent); font-size: 0.6rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
         .portfolio-title { font-family: var(--font-serif); font-size: 0.85rem; color: #fff; margin-bottom: 3px; }
         .portfolio-desc { font-size: 0.6rem; color: rgba(255,255,255,0.6); }
-        .portfolio-footer { text-align: center; margin-top: 50px; }
-        .portfolio-footer p { color: var(--text-muted); font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .portfolio-footer .arrow { animation: bounce 1.5s infinite; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+        
         .lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
         .lightbox.active { display: flex; opacity: 1; }
         .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 8px; transform: scale(0.8); transition: transform 0.4s; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
         .lightbox.active img { transform: scale(1); }
         .lightbox-close { position: absolute; top: 30px; right: 40px; font-size: 3rem; color: #fff; cursor: pointer; opacity: 0.6; transition: 0.3s; line-height: 1; }
         .lightbox-close:hover { opacity: 1; transform: rotate(90deg); }
-        .lightbox-info { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); text-align: center; color: #fff; }
-        .lightbox-info h4 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 8px; }
-        .lightbox-info p { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
-        .contact { padding: 100px 40px; background: #020205; text-align: center; }
+        
+        .contact { padding: 80px 40px; background: #020205; text-align: center; }
         .contact-box { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .qr-card { background: white; padding: 20px; border-radius: 12px; max-width: 320px; margin: 0 auto; }
         .qr-card img { width: 100%; border-radius: 4px; }
+        
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.85rem; }
+        
         @media (max-width: 1100px) { .portfolio-grid { grid-template-columns: repeat(4, 1fr); } }
-        @media (max-width: 900px) { .portfolio-grid { grid-template-columns: repeat(3, 1fr); } .contact-box { grid-template-columns: 1fr; } .hero-main h1 { font-size: 3rem; } }
+        @media (max-width: 900px) { .portfolio-grid { grid-template-columns: repeat(3, 1fr); } .contact-box { grid-template-columns: 1fr; } .hero-main h1 { font-size: 2.5rem; } .nav-links { display: none; } }
         @media (max-width: 600px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .portfolio-tabs { gap: 8px; } .tab-btn { padding: 8px 14px; font-size: 0.8rem; } }
     </style>
 </head>
 <body>
-    <nav><div class="nav-container"><div class="logo"><img src="images/logo-icon.jpg" alt="炫影视觉">深圳市<span>炫影视觉工作室</span></div></div></nav>
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><img src="images/logo-icon.jpg" alt="炫影视觉">深圳市<span>炫影视觉工作室</span></div>
+            <div class="nav-links">
+                <a href="#pricing">价格</a>
+                <a href="#portfolio">作品</a>
+                <a href="#contact">联系</a>
+            </div>
+        </div>
+    </nav>
+    
     <section class="hero">
-        <div class="hero-main"><h1>你好，我是<span>皮蛋哥</span></h1><p>摄影 · 设计 · P图 · 改稿</p><a href="#contact" class="btn-action">开启视觉之旅</a></div>
-        <div class="portfolio-section" id="portfolio">
-            <div style="text-align: center; margin-bottom: 50px;"><h2 style="font-family: var(--font-serif); font-size: clamp(1.8rem, 6vw, 2.8rem); margin-bottom: 15px;">精选作品</h2><p style="color: var(--gold); letter-spacing: 4px; font-size: 0.85rem;">SELECTED PORTFOLIO</p></div>
-            <div class="portfolio-tabs">
-                <button class="tab-btn active" data-filter="all">全部</button>
-                <button class="tab-btn" data-filter="photography">摄影</button>
-                <button class="tab-btn" data-filter="design">设计</button>
-                <button class="tab-btn" data-filter="retouch">P图精修</button>
-                <button class="tab-btn" data-filter="revision">改稿速修</button>
-            </div>
-            <div class="portfolio-grid">
-                <!-- 摄影 10张 -->
-                <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p01.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">时尚人像</h4><p class="portfolio-desc">杂志风 · 潮流</p></div></div>
-                <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p02.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">精致妆容</h4><p class="portfolio-desc">商业妆面</p></div></div>
-                <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p03.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">户外写真</h4><p class="portfolio-desc">自然光 · 清新</p></div></div>
-                <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p04.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">职场形象</h4><p class="portfolio-desc">商务形象照</p></div></div>
-                <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p05.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">闺蜜写真</h4><p class="portfolio-desc">闺蜜 · 合拍</p></div></div>
-                <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p06.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">商业活动</h4><p class="portfolio-desc">展览 · 论坛</p></div></div>
-                <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p07.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">团队合影</h4><p class="portfolio-desc">企业团建</p></div></div>
-                <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p08.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">年会盛典</h4><p class="portfolio-desc">年会拍摄</p></div></div>
-                <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p09.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">婚礼跟拍</h4><p class="portfolio-desc">婚礼纪实</p></div></div>
-                <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p10.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">产品摄影</h4><p class="portfolio-desc">电商 · 静物</p></div></div>
-                
-                <!-- 设计 10张 -->
-                <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d01.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">电商海报</h4><p class="portfolio-desc">主图 · 详情页</p></div></div>
-                <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d02.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">促销海报</h4><p class="portfolio-desc">双11 · 618</p></div></div>
-                <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d11.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">品牌VI设计</h4><p class="portfolio-desc">视觉系统</p></div></div>
-                <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d12.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">Logo设计</h4><p class="portfolio-desc">标志 · 字体</p></div></div>
-                <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d05.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">活动展板</h4><p class="portfolio-desc">展板 · 背景墙</p></div></div>
-                <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d06.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">包装设计</h4><p class="portfolio-desc">产品包装</p></div></div>
-                <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d09.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">宣传画册</h4><p class="portfolio-desc">企业画册</p></div></div>
-                <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d10.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">菜单设计</h4><p class="portfolio-desc">餐饮菜单</p></div></div>
-                <div class="portfolio-item" data-category="design"><img src="images/portfolio/02-brand-design.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">品牌设计</h4><p class="portfolio-desc">全案 · 视觉</p></div></div>
-                <div class="portfolio-item" data-category="design"><img src="images/portfolio/07-poster.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">宣传海报</h4><p class="portfolio-desc">活动 · 产品</p></div></div>
-                
-                <!-- P图精修 14张 -->
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/zhengjianzhao.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">证件照精修</h4><p class="portfolio-desc">换装 · 磨皮</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/renxiang.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">人像精修</h4><p class="portfolio-desc">商业级磨皮</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/koutou.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">抠图</h4><p class="portfolio-desc">证件照换底</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/qushuiyin.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">去水印</h4><p class="portfolio-desc">去 logo · 去文字</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/kuatu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">扩图</h4><p class="portfolio-desc">AI 智能扩图</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/gaoqing.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">高清放大</h4><p class="portfolio-desc">AI 增强</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/lvjing.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">滤镜</h4><p class="portfolio-desc">调色 · 风格</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/jubu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">局部重绘</h4><p class="portfolio-desc">AI 局部修改</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/jingxiu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">精修</h4><p class="portfolio-desc">人像 · 产品</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/chuchu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">擦除</h4><p class="portfolio-desc">多余物体</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/fengge.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">风格化</h4><p class="portfolio-desc">动漫 · 油画</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/daguang.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">打光</h4><p class="portfolio-desc">光影效果</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/tiquxiangao.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">提取线稿</h4><p class="portfolio-desc">转线稿</p></div></div>
-                <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/xiangao.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">线稿上色</h4><p class="portfolio-desc">AI 上色</p></div></div>
-                
-                <!-- 改稿速修 10张 -->
-                <div class="portfolio-item" data-category="revision"><img src="images/portfolio/revision/v01.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">PPT改稿</h4><p class="portfolio-desc">PPT美化</p></div></div>
-                <div class="portfolio-item" data-category="revision"><img src="images/portfolio/09-fix.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">老照片修复</h4><p class="portfolio-desc">修复对比</p></div></div>
-                <div class="portfolio-item" data-category="revision"><img src="images/portfolio/revision/v03.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">图片合成</h4><p class="portfolio-desc">多图合成</p></div></div>
-                <div class="portfolio-item" data-category="revision"><img src="images/portfolio/revision/v04.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">电商主图</h4><p class="portfolio-desc">天猫 · 京东</p></div></div>
-                <div class="portfolio-item" data-category="revision"><img src="images/portfolio/revision/v05.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">商品图优化</h4><p class="portfolio-desc">白底图</p></div></div>
-                <div class="portfolio-item" data-category="revision"><img src="images/portfolio/retouch-new/koutou.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">专业抠图</h4><p class="portfolio-desc">证件照换底</p></div></div>
-                <div class="portfolio-item" data-category="revision"><img src="images/portfolio/retouch-new/chuchu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">物体擦除</h4><p class="portfolio-desc">去路人</p></div></div>
-                <div class="portfolio-item" data-category="revision"><img src="images/portfolio/revision/v07.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">批量处理</h4><p class="portfolio-desc">批量裁剪</p></div></div>
-                <div class="portfolio-item" data-category="revision"><img src="images/portfolio/retouch-new/lvjing.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">滤镜调色</h4><p class="portfolio-desc">批量调色</p></div></div>
-                <div class="portfolio-item" data-category="revision"><img src="images/portfolio/10-revision.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">极速改稿</h4><p class="portfolio-desc">文档排版</p></div></div>
-            </div>
-            <div class="portfolio-footer"><p><span class="arrow">↓</span> 扫码获取完整作品集 · 更多案例等你来看</p></div>
+        <div class="hero-main">
+            <h1>你好，我是<span>皮蛋哥</span></h1>
+            <p>摄影 · 设计 · P图 · 改稿</p>
+            <a href="#pricing" class="btn-action">立即下单</a>
         </div>
     </section>
+    
+    <!-- 价格区 -->
+    <section class="pricing-section" id="pricing">
+        <h2>服务报价</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>📷 摄影服务</h3>
+                <div class="price">¥200<span>起</span></div>
+                <ul>
+                    <li>人像写真</li>
+                    <li>产品拍摄</li>
+                    <li>活动会议</li>
+                </ul>
+                <button class="order-btn" onclick="orderService('摄影服务')">立即下单</button>
+            </div>
+            <div class="price-card">
+                <h3>🎨 品牌设计</h3>
+                <div class="price">¥100<span>起</span></div>
+                <ul>
+                    <li>Logo设计</li>
+                    <li>VI视觉系统</li>
+                    <li>海报宣传物料</li>
+                </ul>
+                <button class="order-btn" onclick="orderService('品牌设计')">立即下单</button>
+            </div>
+            <div class="price-card">
+                <h3>✨ P图精修</h3>
+                <div class="price">¥30<span>起/张</span></div>
+                <ul>
+                    <li>人像精修</li>
+                    <li>产品精修</li>
+                    <li>证件照</li>
+                </ul>
+                <button class="order-btn" onclick="orderService('P图精修')">立即下单</button>
+            </div>
+            <div class="price-card">
+                <h3>⚡ 改稿速修</h3>
+                <div class="price">¥20<span>起/次</span></div>
+                <ul>
+                    <li>文档排版</li>
+                    <li>图片修改</li>
+                    <li>格式调整</li>
+                </ul>
+                <button class="order-btn" onclick="orderService('改稿速修')">立即下单</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="portfolio-section" id="portfolio">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 style="font-family: var(--font-serif); font-size: clamp(1.8rem, 6vw, 2.8rem); margin-bottom: 15px;">精选作品</h2>
+            <p style="color: var(--gold); letter-spacing: 4px; font-size: 0.85rem;">SELECTED PORTFOLIO</p>
+        </div>
+        <div class="portfolio-tabs">
+            <button class="tab-btn active" data-filter="all">全部</button>
+            <button class="tab-btn" data-filter="photography">摄影</button>
+            <button class="tab-btn" data-filter="design">设计</button>
+            <button class="tab-btn" data-filter="retouch">P图精修</button>
+            <button class="tab-btn" data-filter="revision">改稿速修</button>
+        </div>
+        <div class="portfolio-grid">
+            <!-- 摄影 10张 -->
+            <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p01.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">时尚人像</h4><p class="portfolio-desc">杂志风</p></div></div>
+            <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p02.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">精致妆容</h4><p class="portfolio-desc">商业妆面</p></div></div>
+            <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p03.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">户外写真</h4><p class="portfolio-desc">自然光</p></div></div>
+            <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p04.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">职场形象</h4><p class="portfolio-desc">商务照</p></div></div>
+            <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p05.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">闺蜜写真</h4><p class="portfolio-desc">合拍</p></div></div>
+            <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p06.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">商业活动</h4><p class="portfolio-desc">展览</p></div></div>
+            <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p07.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">团队合影</h4><p class="portfolio-desc">团建</p></div></div>
+            <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p08.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">年会盛典</h4><p class="portfolio-desc">年会拍摄</p></div></div>
+            <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p09.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">婚礼跟拍</h4><p class="portfolio-desc">纪实</p></div></div>
+            <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p10.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">产品摄影</h4><p class="portfolio-desc">电商</p></div></div>
+            
+            <!-- 设计 10张 -->
+            <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d01.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">电商海报</h4><p class="portfolio-desc">主图</p></div></div>
+            <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d02.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">促销海报</h4><p class="portfolio-desc">双11</p></div></div>
+            <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d11.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">VI设计</h4><p class="portfolio-desc">视觉系统</p></div></div>
+            <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d12.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">Logo设计</h4><p class="portfolio-desc">标志</p></div></div>
+            <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d05.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">活动展板</h4><p class="portfolio-desc">展板</p></div></div>
+            <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d06.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">包装设计</h4><p class="portfolio-desc">产品包装</p></div></div>
+            <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d09.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">宣传画册</h4><p class="portfolio-desc">画册</p></div></div>
+            <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d10.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">菜单设计</h4><p class="portfolio-desc">餐饮</p></div></div>
+            <div class="portfolio-item" data-category="design"><img src="images/portfolio/02-brand-design.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">品牌设计</h4><p class="portfolio-desc">全案</p></div></div>
+            <div class="portfolio-item" data-category="design"><img src="images/portfolio/07-poster.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">宣传海报</h4><p class="portfolio-desc">活动</p></div></div>
+            
+            <!-- P图精修 10张 -->
+            <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/zhengjianzhao.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">证件照精修</h4><p class="portfolio-desc">换装</p></div></div>
+            <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/renxiang.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">人像精修</h4><p class="portfolio-desc">磨皮</p></div></div>
+            <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/koutou.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">抠图</h4><p class="portfolio-desc">换底</p></div></div>
+            <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/qushuiyin.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">去水印</h4><p class="portfolio-desc">去logo</p></div></div>
+            <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/kuatu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">扩图</h4><p class="portfolio-desc">AI扩图</p></div></div>
+            <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/gaoqing.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">高清放大</h4><p class="portfolio-desc">AI增强</p></div></div>
+            <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/jubu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">局部重绘</h4><p class="portfolio-desc">AI修改</p></div></div>
+            <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/jingxiu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">精修</h4><p class="portfolio-desc">人像</p></div></div>
+            <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/chuchu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">擦除</h4><p class="portfolio-desc">去物体</p></div></div>
+            <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/fengge.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">风格化</h4><p class="portfolio-desc">动漫</p></div></div>
+            
+            <!-- 改稿速修 10张 -->
+            <div class="portfolio-item" data-category="revision"><img src="images/portfolio/revision/v01.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">PPT改稿</h4><p class="portfolio-desc">美化</p></div></div>
+            <div class="portfolio-item" data-category="revision"><img src="images/portfolio/09-fix.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">老照片修复</h4><p class="portfolio-desc">修复</p></div></div>
+            <div class="portfolio-item" data-category="revision"><img src="images/portfolio/revision/v03.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">图片合成</h4><p class="portfolio-desc">多图合成</p></div></div>
+            <div class="portfolio-item" data-category="revision"><img src="images/portfolio/revision/v04.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">电商主图</h4><p class="portfolio-desc">天猫</p></div></div>
+            <div class="portfolio-item" data-category="revision"><img src="images/portfolio/revision/v05.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">商品图优化</h4><p class="portfolio-desc">白底图</p></div></div>
+            <div class="portfolio-item" data-category="revision"><img src="images/portfolio/retouch-new/koutou.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">专业抠图</h4><p class="portfolio-desc">证件照</p></div></div>
+            <div class="portfolio-item" data-category="revision"><img src="images/portfolio/retouch-new/chuchu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">物体擦除</h4><p class="portfolio-desc">去路人</p></div></div>
+            <div class="portfolio-item" data-category="revision"><img src="images/portfolio/revision/v07.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">批量处理</h4><p class="portfolio-desc">批量裁剪</p></div></div>
+            <div class="portfolio-item" data-category="revision"><img src="images/portfolio/retouch-new/daguang.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">打光</h4><p class="portfolio-desc">光影</p></div></div>
+            <div class="portfolio-item" data-category="revision"><img src="images/portfolio/10-revision.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">极速改稿</h4><p class="portfolio-desc">排版</p></div></div>
+        </div>
+    </section>
+    
     <section class="contact" id="contact">
         <div class="contact-box">
             <div class="qr-card"><img src="images/wechat-qr.jpg" alt="微信二维码"><p style="margin-top: 15px; color: #111; font-weight: bold;">扫码添加微信</p></div>
             <div style="text-align: left;">
                 <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 6vw, 2.8rem); margin-bottom: 20px;">随时在线 · 极速出稿</h2>
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 8px; border-left: 5px solid var(--accent);">
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 8px; border-left: 5px solid var(--accent); margin-bottom: 20px;">
                     <p style="font-size: 0.9rem; opacity: 0.5; margin-bottom: 10px;">微信号码</p>
                     <span style="font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: bold; letter-spacing: 2px;">224237205</span>
                 </div>
-                <button class="btn-action" style="margin-top:25px; width:100%; border-radius: 8px;" onclick="copyId()">复制微信号</button>
+                <button class="btn-action" style="width:100%; border-radius: 8px;" onclick="copyId()">复制微信号</button>
             </div>
         </div>
     </section>
+    
+    <footer>
+        <p>© 2026 深圳市炫影视觉工作室 | All Rights Reserved</p>
+    </footer>
+    
+    <div class="lightbox" id="orderLightbox">
+        <span class="lightbox-close" onclick="closeOrder()">&times;</span>
+        <div style="text-align: center; padding: 40px;">
+            <img src="images/wechat-qr.jpg" style="max-width: 300px; border-radius: 12px;" alt="微信二维码">
+            <h3 style="margin-top: 20px; font-size: 1.5rem;">扫码添加微信下单</h3>
+            <p style="color: var(--text-muted); margin-top: 10px;">请备注：<span id="orderServiceName"></span></p>
+            <p style="color: var(--gold); margin-top: 20px;">微信号：224237205</p>
+        </div>
+    </div>
+    
+    <div class="lightbox" id="imgLightbox">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="">
+    </div>
+
     <script>
+        // 分类筛选
         const tabBtns = document.querySelectorAll('.tab-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
         tabBtns.forEach(btn => {
@@ -153,24 +251,30 @@
                 });
             });
         });
+        
+        // 复制微信号
         function copyId() { navigator.clipboard.writeText('224237205').then(() => { alert('✅ 微信号已复制，请前往微信添加皮蛋哥！'); }); }
-        const lightbox = document.createElement('div');
-        lightbox.className = 'lightbox';
-        lightbox.innerHTML = `<span class="lightbox-close">&times;</span><img src="" alt=""><div class="lightbox-info"><h4></h4><p></p></div>`;
-        document.body.appendChild(lightbox);
+        
+        // 下单功能
+        function orderService(serviceName) {
+            document.getElementById('orderServiceName').textContent = serviceName;
+            document.getElementById('orderLightbox').classList.add('active');
+        }
+        function closeOrder() {
+            document.getElementById('orderLightbox').classList.remove('active');
+        }
+        
+        // 图片弹窗
+        const imgLightbox = document.getElementById('imgLightbox');
         document.querySelectorAll('.portfolio-item').forEach(item => {
             item.addEventListener('click', function() {
                 const img = this.querySelector('img');
-                lightbox.querySelector('img').src = img.src;
-                lightbox.querySelector('h4').textContent = this.querySelector('.portfolio-title').textContent;
-                lightbox.querySelector('p').textContent = this.querySelector('.portfolio-desc').textContent;
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                imgLightbox.querySelector('img').src = img.src;
+                imgLightbox.classList.add('active');
             });
         });
-        lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.classList.remove('active'));
-        lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('active'); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('active'); });
+        imgLightbox.querySelector('.lightbox-close').addEventListener('click', () => imgLightbox.classList.remove('active'));
+        imgLightbox.addEventListener('click', e => { if (e.target === imgLightbox) imgLightbox.classList.remove('active'); });
     </script>
 </body>
 </html>
