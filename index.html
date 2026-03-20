@@ -117,14 +117,19 @@
             /* 价格区 */
             .pricing-section { padding: 50px 15px; }
             .pricing-section h2 { font-size: 1.5rem; margin-bottom: 25px; }
-            .pricing-grid { gap: 15px; }
-            .price-card { padding: 20px; }
-            .price-card h3 { font-size: 1rem; }
-            .price-card .price { font-size: 1.5rem; }
+            .pricing-grid { 
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important; 
+                gap: 10px; 
+            }
+            .price-card { padding: 12px; }
+            .price-card h3 { font-size: 0.85rem; }
+            .price-card .price { font-size: 1.2rem; }
+            .price-card li { font-size: 0.65rem; padding: 2px 0; }
+            .price-card .order-btn { padding: 8px; font-size: 0.8rem; }
             
             /* 今日特价和倒计时 */
-            #pricing .price-card[style*="gold"] { padding: 15px; }
-            #pricing > div:last-of-type p { font-size: 0.8rem; }
+            #pricing .price-card[style*="gold"] { padding: 10px; }
+            #pricing > div:last-of-type p { font-size: 0.75rem; }
             
             /* 好玩功能区 - 3列变1列 */
             .pricing-section > div[style*="grid-template-columns: repeat(3"] {
@@ -231,11 +236,15 @@
             /* 价格卡片 */
             .pricing-section { padding: 50px 15px; }
             .pricing-section h2 { font-size: 1.5rem; margin-bottom: 25px; }
-            .pricing-grid { gap: 15px; }
-            .price-card { padding: 20px 15px; }
-            .price-card h3 { font-size: 1rem; }
-            .price-card .price { font-size: 1.5rem; }
-            .price-card li { font-size: 0.85rem; padding: 6px 0; }
+            .pricing-grid { 
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important; 
+                gap: 10px; 
+            }
+            .price-card { padding: 12px; }
+            .price-card h3 { font-size: 0.85rem; }
+            .price-card .price { font-size: 1.2rem; }
+            .price-card li { font-size: 0.65rem; padding: 2px 0; }
+            .price-card .order-btn { padding: 8px; font-size: 0.8rem; }
             
             /* 倒计时 */
             #countdown { font-size: 1.1rem; }
