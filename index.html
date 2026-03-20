@@ -153,11 +153,39 @@
         </div>
     </nav>
     
+    <!-- 💡 悬浮按钮 -->
+    <div class="float-btn">
+        <button class="wechat-btn" onclick="orderService('微信咨询')" title="微信咨询">💬</button>
+        <button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</button>
+    </div>
+    
     <section class="hero">
         <div class="hero-main">
             <h1>你好，我是<span>皮蛋哥</span></h1>
             <p>摄影 · 设计 · P图 · 改稿</p>
             <a href="#pricing" class="btn-action">立即下单</a>
+        </div>
+        
+        <!-- 💡 新增：数字统计 -->
+        <div style="width: 100%; max-width: 900px; margin-top: 40px; padding: 30px; background: rgba(255,255,255,0.03); border-radius: 16px;">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center;">
+                <div>
+                    <h3 style="font-size: 2.2rem; color: var(--accent);" id="stat1">0</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">服务客户</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 2.2rem; color: var(--gold);" id="stat2">0</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">完成作品</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 2.2rem; color: #00ff88;" id="stat3">0%</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">好评率</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 2.2rem; color: #ff6b6b;" id="stat4">0</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">天经验</p>
+                </div>
+            </div>
         </div>
     </section>
     
@@ -472,6 +500,38 @@
         });
         imgLightbox.querySelector('.lightbox-close').addEventListener('click', () => imgLightbox.classList.remove('active'));
         imgLightbox.addEventListener('click', e => { if (e.target === imgLightbox) imgLightbox.classList.remove('active'); });
+        
+        // 💡 数字动画
+        function animateNumber(id, target, suffix = '') {
+            let current = 0;
+            const step = target / 50;
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) { current = target; clearInterval(timer); }
+                document.getElementById(id).textContent = Math.floor(current) + suffix;
+            }, 30);
+        }
+        setTimeout(() => {
+            animateNumber('stat1', 1200, '+');
+            animateNumber('stat2', 5000, '+');
+            animateNumber('stat3', 99, '%');
+            animateNumber('stat4', 1825, '+');
+        }, 500);
+        
+        // 💡 倒计时
+        function updateCountdown() {
+            const now = new Date();
+            const end = new Date();
+            end.setHours(23, 59, 59);
+            const diff = end - now;
+            const h = Math.floor(diff / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+            document.getElementById('countdown').textContent = 
+                `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
         
         // 在线试玩功能
         let originalImage = null;
