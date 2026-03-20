@@ -191,14 +191,32 @@
     </div>
     
     <!-- 📸 新增：照片滤镜预览 -->
-    <div id="filterPopup" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000; align-items: center; justify-content: center;">
-        <div style="text-align: center; padding: 30px; max-width: 500px;">
-            <h2 style="margin-bottom: 20px;">📸 滤镜预览</h2>
-            <div style="position: relative;">
-                <img id="demoImg" src="images/portfolio/photography/p01.jpg" style="max-width: 100%; max-height: 400px; border-radius: 12px;">
+    <div id="filterPopup" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000; align-items: center; justify-content: center; overflow-y: auto;">
+        <div style="text-align: center; padding: 30px; max-width: 500px; width: 90%;">
+            <h2 style="margin-bottom: 10px;">📸 滤镜预览</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">上传照片，一键体验滤镜效果</p>
+            
+            <!-- 上传区域 -->
+            <div id="filterUploadArea" onclick="document.getElementById('filterFileInput').click()" style="border: 2px dashed rgba(255,255,255,0.3); border-radius: 12px; padding: 30px; margin-bottom: 20px; cursor: pointer; transition: 0.3s;">
+                <input type="file" id="filterFileInput" accept="image/*" style="display: none;" onchange="handleFilterUpload(event)">
+                <div style="font-size: 2rem; margin-bottom: 10px;">📷</div>
+                <p style="color: var(--text-muted);">点击上传照片</p>
             </div>
-            <div id="filterButtons" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0;"></div>
-            <button onclick="closeFilterDemo()" style="background: transparent; border: 1px solid white; color: white; padding: 10px 30px; border-radius: 20px; cursor: pointer;">关闭</button>
+            
+            <!-- 图片预览 -->
+            <div id="filterPreviewArea" style="display: none;">
+                <img id="demoImg" src="" style="max-width: 100%; max-height: 350px; border-radius: 12px; margin-bottom: 15px;">
+                
+                <!-- 滤镜按钮 -->
+                <div id="filterButtons" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 15px;"></div>
+                
+                <div style="display: flex; gap: 10px; justify-content: center;">
+                    <button onclick="downloadFilteredImage()" style="background: var(--accent); border: none; color: white; padding: 10px 20px; border-radius: 20px; cursor: pointer;">下载图片</button>
+                    <button onclick="resetFilterUpload()" style="background: transparent; border: 1px solid white; color: white; padding: 10px 20px; border-radius: 20px; cursor: pointer;">换一张</button>
+                </div>
+            </div>
+            
+            <button onclick="closeFilterDemo()" style="margin-top: 20px; background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--text-muted); padding: 8px 20px; border-radius: 20px; cursor: pointer;">关闭</button>
         </div>
     </div>
     
@@ -899,6 +917,8 @@
             { name: '饱和', value: 'saturate(2)' },
             { name: '色调', value: 'hue-rotate(90deg)' }
         ];
+        let currentFilter = 'none';
+        let filterImageSrc = null;
         
         function openFilterDemo() {
             document.getElementById('filterPopup').style.display = 'flex';
@@ -907,10 +927,47 @@
             filters.forEach(f => {
                 const btn = document.createElement('button');
                 btn.textContent = f.name;
-                btn.style.cssText = 'background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer;';
-                btn.onclick = () => document.getElementById('demoImg').style.filter = f.value;
+                btn.style.cssText = 'background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: 0.3s;';
+                btn.onclick = () => {
+                    currentFilter = f.value;
+                    document.getElementById('demoImg').style.filter = f.value;
+                };
                 btnDiv.appendChild(btn);
             });
+        }
+        
+        function handleFilterUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                filterImageSrc = e.target.result;
+                document.getElementById('demoImg').src = filterImageSrc;
+                document.getElementById('filterUploadArea').style.display = 'none';
+                document.getElementById('filterPreviewArea').style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        function resetFilterUpload() {
+            document.getElementById('filterUploadArea').style.display = 'block';
+            document.getElementById('filterPreviewArea').style.display = 'none';
+            document.getElementById('demoImg').style.filter = 'none';
+            currentFilter = 'none';
+        }
+        
+        function downloadFilteredImage() {
+            const img = document.getElementById('demoImg');
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            ctx.filter = currentFilter;
+            ctx.drawImage(img, 0, 0);
+            const link = document.createElement('a');
+            link.download = 'pidan-filter.jpg';
+            link.href = canvas.toDataURL('image/jpeg', 0.9);
+            link.click();
         }
         
         function closeFilterDemo() {
