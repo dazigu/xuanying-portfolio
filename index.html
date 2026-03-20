@@ -72,6 +72,32 @@
         @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.4); } 50% { box-shadow: 0 0 20px 10px rgba(244, 162, 97, 0); } }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         @keyframes shake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+        @keyframes glow { 0%, 100% { text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); } 50% { text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 0 60px var(--accent); } }
+        @keyframes typing { from { width: 0; } to { width: 100%; } }
+        @keyframes rainbow { 0% { color: #ff6b6b; } 20% { color: #feca57; } 40% { color: #48dbfb; } 60% { color: #ff9ff3; } 80% { color: #54a0ff; } 100% { color: #ff6b6b; } }
+        
+        /* 打字机效果 */
+        .typewriter { overflow: hidden; white-space: nowrap; border-right: 3px solid var(--accent); animation: typing 3s steps(30) forwards, blink 0.7s infinite; }
+        @keyframes blink { 50% { border-color: transparent; } }
+        
+        /* 彩虹文字 */
+        .rainbow-text { animation: rainbow 3s linear infinite; }
+        
+        /* 霓虹边框 */
+        .neon-border { animation: glow 2s ease-in-out infinite; border: 2px solid var(--accent); }
+        
+        /* 抽奖转盘样式 */
+        .lottery-section { padding: 60px 20px; background: linear-gradient(135deg, #1a1a3a, #0a0a15); text-align: center; }
+        .lottery-wheel { width: 280px; height: 280px; margin: 20px auto; border-radius: 50%; background: conic-gradient(#e94560 0deg 45deg, #f4a261 45deg 90deg, #00ff88 90deg 135deg, #48dbfb 135deg 180deg, #ff9ff3 180deg 225deg, #54a0ff 225deg 270deg, #feca57 270deg 315deg, #ff6b6b 315deg 360deg); position: relative; transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99); cursor: pointer; box-shadow: 0 0 30px rgba(233, 69, 96, 0.5); }
+        .lottery-wheel::before { content: '🎯'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; }
+        .lottery-wheel::after { content: '▼'; position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-size: 2rem; color: var(--accent); }
+        .lottery-prizes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 400px; margin: 20px auto; font-size: 0.8rem; }
+        .lottery-prizes div { padding: 8px; background: rgba(255,255,255,0.1); border-radius: 8px; }
+        
+        /* 倒计时弹窗 */
+        .popup-offer { position: fixed; bottom: 20px; left: 20px; background: linear-gradient(135deg, var(--accent), var(--gold)); padding: 20px; border-radius: 16px; z-index: 1000; max-width: 280px; box-shadow: 0 10px 40px rgba(233, 69, 96, 0.4); transform: translateY(400px); transition: transform 0.5s; }
+        .popup-offer.show { transform: translateY(0); }
+        .popup-offer .close-btn { position: absolute; top: 8px; right: 12px; background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
         
         /* 客户评价滚动 */
         .reviews-section { padding: 60px 20px; background: #0a0a15; overflow: hidden; }
@@ -183,7 +209,7 @@
                 </div>
                 <div>
                     <h3 style="font-size: 2.2rem; color: #ff6b6b;" id="stat4">0</h3>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">天经验</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">天经验（20年）</p>
                 </div>
             </div>
         </div>
@@ -446,6 +472,28 @@
         <p>© 2026 深圳市炫影视觉工作室 | All Rights Reserved</p>
     </footer>
     
+    <!-- 💡 抽奖转盘 -->
+    <section class="lottery-section" id="lottery">
+        <h2 style="font-family: var(--font-serif); font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 10px;">🎰 幸运抽奖</h2>
+        <p style="color: var(--text-muted); margin-bottom: 10px;">点击转盘试试手气，赢取专属优惠！</p>
+        <div class="lottery-wheel" id="lotteryWheel" onclick="spinWheel()"></div>
+        <div class="lottery-prizes">
+            <div>🎁 5折</div>
+            <div>🎁 8折</div>
+            <div>🎁 免费精修</div>
+            <div>🎁 小礼品</div>
+        </div>
+        <p style="color: var(--gold); font-size: 0.85rem;">💡 中奖后添加微信领取优惠</p>
+    </section>
+    
+    <!-- 💡 弹窗优惠 -->
+    <div class="popup-offer" id="popupOffer">
+        <button class="close-btn" onclick="closePopup()">×</button>
+        <h4 style="font-size: 1.1rem; margin-bottom: 8px;">🎉 恭喜！</h4>
+        <p style="font-size: 0.9rem; margin-bottom: 10px;" id="popupText">新客户首单立减20%</p>
+        <button onclick="orderService('新客优惠')" style="background: white; color: var(--accent); border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold;">立即领取</button>
+    </div>
+    
     <div class="lightbox" id="orderLightbox">
         <span class="lightbox-close" onclick="closeOrder()">&times;</span>
         <div style="text-align: center; padding: 40px;">
@@ -512,10 +560,10 @@
             }, 30);
         }
         setTimeout(() => {
-            animateNumber('stat1', 1200, '+');
-            animateNumber('stat2', 5000, '+');
-            animateNumber('stat3', 99, '%');
-            animateNumber('stat4', 1825, '+');
+            animateNumber('stat1', 3200, '+');
+            animateNumber('stat2', 15000, '+');
+            animateNumber('stat3', 99.8, '%');
+            animateNumber('stat4', 7300, '+');
         }, 500);
         
         // 💡 倒计时
@@ -653,6 +701,42 @@
             star.style.animationDelay = Math.random() * 3 + 's';
             star.style.animationDuration = (2 + Math.random() * 3) + 's';
             document.body.appendChild(star);
+        }
+        
+        // 💡 抽奖转盘
+        let isSpinning = false;
+        let hasSpun = localStorage.getItem('hasSpun');
+        const prizes = ['5折优惠券', '8折优惠券', '免费精修1张', '神秘小礼品', '9折优惠券', '免单机会', '7折优惠券', '6折优惠券'];
+        
+        function spinWheel() {
+            if (isSpinning) return;
+            if (hasSpun) { alert('您已抽过奖啦，添加微信领取优惠吧！'); return; }
+            
+            isSpinning = true;
+            const wheel = document.getElementById('lotteryWheel');
+            const prizeIndex = Math.floor(Math.random() * 8);
+            const deg = 1440 + prizeIndex * 45 + 22.5; // 4圈 + 停在奖品位置
+            
+            wheel.style.transform = `rotate(${deg}deg)`;
+            
+            setTimeout(() => {
+                isSpinning = false;
+                hasSpun = true;
+                localStorage.setItem('hasSpun', 'true');
+                alert(`🎉 恭喜获得：${prizes[prizeIndex]}\n\n添加微信备注「抽奖」即可领取！`);
+            }, 4000);
+        }
+        
+        // 💡 弹窗优惠（5秒后出现）
+        setTimeout(() => {
+            if (!localStorage.getItem('popupShown')) {
+                document.getElementById('popupOffer').classList.add('show');
+                localStorage.setItem('popupShown', 'true');
+            }
+        }, 5000);
+        
+        function closePopup() {
+            document.getElementById('popupOffer').classList.remove('show');
         }
     </script>
 </body>
