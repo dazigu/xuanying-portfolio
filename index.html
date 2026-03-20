@@ -202,6 +202,67 @@
             <div class="portfolio-item" data-category="revision"><img src="images/portfolio/10-revision.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">极速改稿</h4><p class="portfolio-desc">排版</p></div></div>
         </div>
     </section>
+
+    <!-- 在线试玩区 -->
+    <section class="pricing-section" id="tryit">
+        <h2 style="text-align: center; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 20px;">🎮 在线试玩</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">上传图片，在线体验修图效果（免费试用）</p>
+        
+        <div style="max-width: 900px; margin: 0 auto; background: #151525; border-radius: 16px; padding: 30px;">
+            <!-- 上传区域 -->
+            <div id="uploadArea" style="border: 2px dashed rgba(255,255,255,0.2); border-radius: 12px; padding: 40px; text-align: center; cursor: pointer; transition: 0.3s;" onclick="document.getElementById('fileInput').click()">
+                <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="handleFileUpload(event)">
+                <div style="font-size: 3rem; margin-bottom: 15px;">📷</div>
+                <p style="color: var(--text-muted);">点击上传图片 或 拖拽图片到这里</p>
+            </div>
+            
+            <!-- 预览和滤镜 -->
+            <div id="previewArea" style="display: none;">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <img id="previewImg" style="max-width: 100%; max-height: 400px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);" alt="预览">
+                </div>
+                
+                <!-- 滤镜按钮 -->
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px;">
+                    <button class="tab-btn" onclick="applyFilter('none')">原图</button>
+                    <button class="tab-btn" onclick="applyFilter('grayscale(100%)')">灰度</button>
+                    <button class="tab-btn" onclick="applyFilter('sepia(100%)')">怀旧</button>
+                    <button class="tab-btn" onclick="applyFilter('brightness(1.3) contrast(1.2)')">提亮</button>
+                    <button class="tab-btn" onclick="applyFilter('brightness(0.8) contrast(1.3)')">暗调</button>
+                    <button class="tab-btn" onclick="applyFilter('saturate(2)')">鲜艳</button>
+                    <button class="tab-btn" onclick="applyFilter('saturate(0) brightness(1.1)')">黑白</button>
+                    <button class="tab-btn" onclick="applyFilter('hue-rotate(90deg)')">色调</button>
+                    <button class="tab-btn" onclick="applyFilter('blur(3px)')">模糊</button>
+                    <button class="tab-btn" onclick="applyFilter('invert(100%)')">反色</button>
+                </div>
+                
+                <!-- 滑块调节 -->
+                <div style="max-width: 500px; margin: 0 auto 20px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px;">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 8px; color: var(--text-muted);">亮度 <span id="brightVal">100%</span></label>
+                        <input type="range" id="brightness" min="50" max="150" value="100" style="width: 100%;" oninput="updateManual()">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 8px; color: var(--text-muted);">对比度 <span id="contrastVal">100%</span></label>
+                        <input type="range" id="contrast" min="50" max="150" value="100" style="width: 100%;" oninput="updateManual()">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: var(--text-muted);">饱和度 <span id="saturateVal">100%</span></label>
+                        <input type="range" id="saturate" min="0" max="200" value="100" style="width: 100%;" oninput="updateManual()">
+                    </div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <button class="tab-btn" onclick="resetFilters()">重置</button>
+                    <button class="btn-action" style="padding: 12px 30px; font-size: 1rem; border-radius: 30px;" onclick="downloadImage()">下载图片</button>
+                </div>
+            </div>
+        </div>
+        
+        <p style="text-align: center; color: var(--gold); margin-top: 20px; font-size: 0.85rem;">
+            💡 提示：点击滤镜按钮实时预览，滑动滑块精细调节
+        </p>
+    </section>
     
     <section class="contact" id="contact">
         <div class="contact-box">
@@ -275,6 +336,89 @@
         });
         imgLightbox.querySelector('.lightbox-close').addEventListener('click', () => imgLightbox.classList.remove('active'));
         imgLightbox.addEventListener('click', e => { if (e.target === imgLightbox) imgLightbox.classList.remove('active'); });
+        
+        // 在线试玩功能
+        let originalImage = null;
+        
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                originalImage = e.target.result;
+                document.getElementById('previewImg').src = originalImage;
+                document.getElementById('uploadArea').style.display = 'none';
+                document.getElementById('previewArea').style.display = 'block';
+                resetFilters();
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        function applyFilter(filter) {
+            document.getElementById('previewImg').style.filter = filter;
+            // 重置滑块
+            document.getElementById('brightness').value = 100;
+            document.getElementById('contrast').value = 100;
+            document.getElementById('saturate').value = 100;
+            document.getElementById('brightVal').textContent = '100%';
+            document.getElementById('contrastVal').textContent = '100%';
+            document.getElementById('saturateVal').textContent = '100%';
+        }
+        
+        function updateManual() {
+            const bright = document.getElementById('brightness').value;
+            const contrast = document.getElementById('contrast').value;
+            const saturate = document.getElementById('saturate').value;
+            document.getElementById('brightVal').textContent = bright + '%';
+            document.getElementById('contrastVal').textContent = contrast + '%';
+            document.getElementById('saturateVal').textContent = saturate + '%';
+            document.getElementById('previewImg').style.filter = `brightness(${bright}%) contrast(${contrast}%) saturate(${saturate}%)`;
+        }
+        
+        function resetFilters() {
+            document.getElementById('brightness').value = 100;
+            document.getElementById('contrast').value = 100;
+            document.getElementById('saturate').value = 100;
+            document.getElementById('brightVal').textContent = '100%';
+            document.getElementById('contrastVal').textContent = '100%';
+            document.getElementById('saturateVal').textContent = '100%';
+            document.getElementById('previewImg').style.filter = 'none';
+        }
+        
+        function downloadImage() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = document.getElementById('previewImg');
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            
+            const bright = document.getElementById('brightness').value / 100;
+            const contrast = document.getElementById('contrast').value / 100;
+            const saturate = document.getElementById('saturate').value / 100;
+            
+            ctx.filter = `brightness(${bright}) contrast(${contrast}) saturate(${saturate})`;
+            ctx.drawImage(img, 0, 0);
+            
+            const link = document.createElement('a');
+            link.download = 'pidan-edit.jpg';
+            link.href = canvas.toDataURL('image/jpeg', 0.9);
+            link.click();
+        }
+        
+        // 拖拽上传
+        const uploadArea = document.getElementById('uploadArea');
+        uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.style.borderColor = 'var(--accent)'; });
+        uploadArea.addEventListener('dragleave', e => { e.preventDefault(); uploadArea.style.borderColor = 'rgba(255,255,255,0.2)'; });
+        uploadArea.addEventListener('drop', e => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'rgba(255,255,255,0.2)';
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                document.getElementById('fileInput').files = e.dataTransfer.files;
+                handleFileUpload({ target: { files: [file] } });
+            }
+        });
     </script>
 </body>
 </html>
