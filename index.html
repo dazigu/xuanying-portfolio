@@ -68,12 +68,80 @@
         
         footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.85rem; }
         
+        /* 💡 新增样式 */
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.4); } 50% { box-shadow: 0 0 20px 10px rgba(244, 162, 97, 0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes shake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+        
+        /* 客户评价滚动 */
+        .reviews-section { padding: 60px 20px; background: #0a0a15; overflow: hidden; }
+        .reviews-track { display: flex; gap: 20px; animation: scroll 30s linear infinite; }
+        .review-card { min-width: 300px; background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; }
+        .review-card .stars { color: var(--gold); margin-bottom: 10px; }
+        .review-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px; }
+        .review-card .author { font-size: 0.8rem; color: var(--accent); }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        
+        /* 客服悬浮按钮 */
+        .float-btn { position: fixed; bottom: 100px; right: 20px; z-index: 999; }
+        .float-btn button { width: 60px; height: 60px; border-radius: 50%; border: none; cursor: pointer; font-size: 1.5rem; transition: 0.3s; display: block; margin-top: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        .float-btn .wechat-btn { background: #07C160; color: white; animation: shake 2s infinite; }
+        .float-btn .top-btn { background: var(--accent); color: white; }
+        .float-btn button:hover { transform: scale(1.1); }
+        
+        /* 数字统计 */
+        .stats-section { padding: 40px 20px; background: linear-gradient(135deg, #1a1a3a, var(--dark)); }
+        .stats-grid { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .stat-item h3 { font-size: 2.5rem; color: var(--accent); margin-bottom: 5px; }
+        .stat-item p { font-size: 0.8rem; color: var(--text-muted); }
+        
+        @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+        
         @media (max-width: 1100px) { .portfolio-grid { grid-template-columns: repeat(4, 1fr); } }
         @media (max-width: 900px) { .portfolio-grid { grid-template-columns: repeat(3, 1fr); } .contact-box { grid-template-columns: 1fr; } .hero-main h1 { font-size: 2.5rem; } .nav-links { display: none; } }
         @media (max-width: 600px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .portfolio-tabs { gap: 8px; } .tab-btn { padding: 8px 14px; font-size: 0.8rem; } }
     </style>
+<style>
+        /* 滚动进度条 */
+        .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--accent), var(--gold)); z-index: 10000; transition: width 0.1s; }
+        
+        /* 鼠标光效 */
+        .cursor-light { position: fixed; width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle, rgba(233,69,96,0.8) 0%, transparent 70%); pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: screen; }
+        
+        /* 回到顶部 */
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: 0.3s; z-index: 999; box-shadow: 0 5px 20px rgba(233,69,96,0.4); }
+        .back-to-top.show { opacity: 1; }
+        .back-to-top:hover { transform: scale(1.1); }
+        
+        /* 欢迎提示 */
+        .welcome-toast { position: fixed; top: 80px; right: 20px; background: linear-gradient(135deg, #1a1a3a, #0f0f1e); padding: 15px 25px; border-radius: 12px; border: 1px solid rgba(233,69,96,0.3); z-index: 10001; transform: translateX(400px); transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .welcome-toast.show { transform: translateX(0); }
+        .welcome-toast h4 { color: var(--accent); margin-bottom: 5px; font-size: 0.9rem; }
+        .welcome-toast p { color: var(--text-muted); font-size: 0.8rem; }
+        
+        /* 背景星星 */
+        .star { position: fixed; width: 3px; height: 3px; background: white; border-radius: 50%; opacity: 0; pointer-events: none; animation: twinkle 3s infinite; }
+        @keyframes twinkle { 0%, 100% { opacity: 0; } 50% { opacity: 0.8; } }
+        
+        /* 在线状态 */
+        .online-dot { display: inline-block; width: 8px; height: 8px; background: #00ff88; border-radius: 50%; margin-right: 5px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    </style>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="cursor-light" id="cursorLight"></div>
+    
+    <!-- 欢迎提示 -->
+    <div class="welcome-toast" id="welcomeToast">
+        <h4>👋 欢迎来到炫影视觉</h4>
+        <p>摄影 · 设计 · P图 · 改稿</p>
+    </div>
+    
+    <!-- 回到顶部 -->
+    <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <span style="font-size: 1.5rem;">↑</span>
+    </div>
     <nav>
         <div class="nav-container">
             <div class="logo"><img src="images/logo-icon.jpg" alt="炫影视觉">深圳市<span>炫影视觉工作室</span></div>
@@ -137,6 +205,24 @@
                 </ul>
                 <button class="order-btn" onclick="orderService('改稿速修')">立即下单</button>
             </div>
+            
+            <!-- 💡 新增：今日特价卡片 -->
+            <div class="price-card" style="border: 2px solid var(--gold); position: relative; overflow: hidden; animation: pulse 2s infinite;">
+                <div style="position: absolute; top: 12px; right: -25px; background: var(--gold); color: #000; padding: 4px 35px; font-size: 0.65rem; font-weight: bold; transform: rotate(45deg);">限时</div>
+                <h3>🔥 今日特价</h3>
+                <div class="price" style="color: var(--gold);">¥29.9<span>/张</span></div>
+                <ul>
+                    <li>证件照精修</li>
+                    <li>含换底+精修</li>
+                    <li>当天出稿</li>
+                </ul>
+                <button class="order-btn" onclick="orderService('今日特价-证件照')" style="background: linear-gradient(135deg, var(--gold), #e76f51);">🔥 抢购优惠</button>
+            </div>
+        </div>
+        
+        <!-- 💡 倒计时 -->
+        <div style="text-align: center; margin-top: 25px;">
+            <p style="color: var(--gold); font-size: 0.9rem;">⏰ 今日特价剩余：<span id="countdown" style="font-size: 1.3rem; font-weight: bold; color: var(--accent);">--:--:--</span></p>
         </div>
     </section>
     
@@ -262,13 +348,63 @@
         <p style="text-align: center; color: var(--gold); margin-top: 20px; font-size: 0.85rem;">
             💡 提示：点击滤镜按钮实时预览，滑动滑块精细调节
         </p>
+        
+        <!-- 今日优惠 -->
+        <div style="max-width: 900px; margin: 30px auto 0; padding: 25px; background: linear-gradient(135deg, rgba(233,69,96,0.2), rgba(244,162,97,0.1)); border-radius: 16px; border: 1px solid rgba(233,69,96,0.3); text-align: center;">
+            <p style="color: var(--accent); font-size: 1.2rem; margin-bottom: 10px;">🎁 今日限时优惠</p>
+            <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 5px;">首单立减 <span style="color: var(--gold); font-size: 2rem;">20%</span></p>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">添加微信备注「网站优惠」即可享受</p>
+        </div>
+        
+        <!-- 客户好评 -->
+        <div style="max-width: 900px; margin: 40px auto 0;">
+            <h3 style="text-align: center; font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px;">💬 客户好评</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border-left: 3px solid var(--accent);">
+                    <p style="font-size: 0.9rem; margin-bottom: 8px;">"修图速度超快，质量也很好！"</p>
+                    <p style="color: var(--text-muted); font-size: 0.75rem;">— 淘宝店主 小美</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border-left: 3px solid var(--gold);">
+                    <p style="font-size: 0.9rem; margin-bottom: 8px;">"证件照修得自然，不像网红脸"</p>
+                    <p style="color: var(--text-muted); font-size: 0.75rem;">— 大学生 阿杰</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border-left: 3px solid #00ff88;">
+                    <p style="font-size: 0.9rem; margin-bottom: 8px;">"老照片修复太牛了，感动！"</p>
+                    <p style="color: var(--text-muted); font-size: 0.75rem;">— 设计师 老王</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 服务保障 -->
+        <div style="max-width: 900px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; text-align: center;">
+            <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">⚡</div>
+                <p style="font-weight: bold; margin-bottom: 3px;">极速交付</p>
+                <p style="color: var(--text-muted); font-size: 0.8rem;">最快1小时出稿</p>
+            </div>
+            <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">🔄</div>
+                <p style="font-weight: bold; margin-bottom: 3px;">免费修改</p>
+                <p style="color: var(--text-muted); font-size: 0.8rem;">满意为止</p>
+            </div>
+            <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">🔒</div>
+                <p style="font-weight: bold; margin-bottom: 3px;">隐私保护</p>
+                <p style="color: var(--text-muted); font-size: 0.8rem;">文件绝不外泄</p>
+            </div>
+            <div>
+                <div style="font-size: 2rem; margin-bottom: 8px;">💰</div>
+                <p style="font-weight: bold; margin-bottom: 3px;">价格透明</p>
+                <p style="color: var(--text-muted); font-size: 0.8rem;">先报价后开工</p>
+            </div>
+        </div>
     </section>
     
     <section class="contact" id="contact">
         <div class="contact-box">
             <div class="qr-card"><img src="images/wechat-qr.jpg" alt="微信二维码"><p style="margin-top: 15px; color: #111; font-weight: bold;">扫码添加微信</p></div>
             <div style="text-align: left;">
-                <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 6vw, 2.8rem); margin-bottom: 20px;">随时在线 · 极速出稿</h2>
+                <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 6vw, 2.8rem); margin-bottom: 20px;"><span class="online-dot"></span>随时在线 · 极速出稿</h2>
                 <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 8px; border-left: 5px solid var(--accent); margin-bottom: 20px;">
                     <p style="font-size: 0.9rem; opacity: 0.5; margin-bottom: 10px;">微信号码</p>
                     <span style="font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: bold; letter-spacing: 2px;">224237205</span>
@@ -419,6 +555,45 @@
                 handleFileUpload({ target: { files: [file] } });
             }
         });
+        
+        // 滚动进度条
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+            
+            // 回到顶部按钮
+            if (winScroll > 500) {
+                document.getElementById('backToTop').classList.add('show');
+            } else {
+                document.getElementById('backToTop').classList.remove('show');
+            }
+        });
+        
+        // 鼠标光效
+        document.addEventListener('mousemove', e => {
+            const light = document.getElementById('cursorLight');
+            light.style.left = e.clientX + 'px';
+            light.style.top = e.clientY + 'px';
+        });
+        
+        // 欢迎提示
+        setTimeout(() => {
+            document.getElementById('welcomeToast').classList.add('show');
+            setTimeout(() => document.getElementById('welcomeToast').classList.remove('show'), 5000);
+        }, 1000);
+        
+        // 背景星星
+        for (let i = 0; i < 30; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (2 + Math.random() * 3) + 's';
+            document.body.appendChild(star);
+        }
     </script>
 </body>
 </html>
