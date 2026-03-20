@@ -23,7 +23,7 @@
         .hero-main p { font-size: 1.1rem; letter-spacing: 4px; color: var(--text-muted); margin-bottom: 30px; }
         .btn-action { background: var(--accent); color: white; border: none; padding: 18px 50px; font-size: 1.2rem; cursor: pointer; border-radius: 50px; transition: 0.3s; font-weight: bold; text-decoration: none; display: inline-block; }
         .btn-action:hover { box-shadow: 0 0 30px rgba(233, 69, 96, 0.6); transform: scale(1.05); }
-        
+
         /* 价格卡片区 */
         .pricing-section { padding: 80px 20px; background: #0a0a15; }
         .pricing-section h2 { text-align: center; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 40px; }
@@ -37,7 +37,7 @@
         .price-card li { padding: 8px 0; color: var(--text-muted); font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .price-card .order-btn { width: 100%; padding: 12px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: 0.3s; }
         .price-card .order-btn:hover { opacity: 0.8; }
-        
+
         .portfolio-section { width: 100%; max-width: 1400px; margin-top: 60px; padding: 0 20px; }
         .portfolio-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
         .tab-btn { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-muted); padding: 12px 30px; border-radius: 30px; cursor: pointer; transition: 0.3s; font-size: 0.95rem; }
@@ -53,21 +53,21 @@
         .portfolio-tag { color: var(--accent); font-size: 0.6rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
         .portfolio-title { font-family: var(--font-serif); font-size: 0.85rem; color: #fff; margin-bottom: 3px; }
         .portfolio-desc { font-size: 0.6rem; color: rgba(255,255,255,0.6); }
-        
+
         .lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
         .lightbox.active { display: flex; opacity: 1; }
         .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 8px; transform: scale(0.8); transition: transform 0.4s; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
         .lightbox.active img { transform: scale(1); }
         .lightbox-close { position: absolute; top: 30px; right: 40px; font-size: 3rem; color: #fff; cursor: pointer; opacity: 0.6; transition: 0.3s; line-height: 1; }
         .lightbox-close:hover { opacity: 1; transform: rotate(90deg); }
-        
+
         .contact { padding: 80px 40px; background: #020205; text-align: center; }
         .contact-box { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .qr-card { background: white; padding: 20px; border-radius: 12px; max-width: 320px; margin: 0 auto; }
         .qr-card img { width: 100%; border-radius: 4px; }
-        
+
         footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.85rem; }
-        
+
         /* 💡 新增样式 */
         @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.4); } 50% { box-shadow: 0 0 20px 10px rgba(244, 162, 97, 0); } }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
@@ -75,17 +75,17 @@
         @keyframes glow { 0%, 100% { text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); } 50% { text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 0 60px var(--accent); } }
         @keyframes typing { from { width: 0; } to { width: 100%; } }
         @keyframes rainbow { 0% { color: #ff6b6b; } 20% { color: #feca57; } 40% { color: #48dbfb; } 60% { color: #ff9ff3; } 80% { color: #54a0ff; } 100% { color: #ff6b6b; } }
-        
+
         /* 打字机效果 */
         .typewriter { overflow: hidden; white-space: nowrap; border-right: 3px solid var(--accent); animation: typing 3s steps(30) forwards, blink 0.7s infinite; }
         @keyframes blink { 50% { border-color: transparent; } }
-        
+
         /* 彩虹文字 */
         .rainbow-text { animation: rainbow 3s linear infinite; }
-        
+
         /* 霓虹边框 */
         .neon-border { animation: glow 2s ease-in-out infinite; border: 2px solid var(--accent); }
-        
+
         /* 抽奖转盘样式 */
         .lottery-section { padding: 60px 20px; background: linear-gradient(135deg, #1a1a3a, #0a0a15); text-align: center; }
         .lottery-wheel { width: 280px; height: 280px; margin: 20px auto; border-radius: 50%; background: conic-gradient(#e94560 0deg 45deg, #f4a261 45deg 90deg, #00ff88 90deg 135deg, #48dbfb 135deg 180deg, #ff9ff3 180deg 225deg, #54a0ff 225deg 270deg, #feca57 270deg 315deg, #ff6b6b 315deg 360deg); position: relative; transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99); cursor: pointer; box-shadow: 0 0 30px rgba(233, 69, 96, 0.5); }
@@ -93,12 +93,95 @@
         .lottery-wheel::after { content: '▼'; position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-size: 2rem; color: var(--accent); }
         .lottery-prizes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 400px; margin: 20px auto; font-size: 0.8rem; }
         .lottery-prizes div { padding: 8px; background: rgba(255,255,255,0.1); border-radius: 8px; }
-        
+
         /* 倒计时弹窗 */
         .popup-offer { position: fixed; bottom: 20px; left: 20px; background: linear-gradient(135deg, var(--accent), var(--gold)); padding: 20px; border-radius: 16px; z-index: 1000; max-width: 280px; box-shadow: 0 10px 40px rgba(233, 69, 96, 0.4); transform: translateY(400px); transition: transform 0.5s; }
         .popup-offer.show { transform: translateY(0); }
         .popup-offer .close-btn { position: absolute; top: 8px; right: 12px; background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
+
+        /* 📱 手机端全面适配 */
+        @media (max-width: 768px) {
+            /* 整体布局 */
+            body { font-size: 14px; }
+            .hero { padding: 100px 15px 60px; min-height: auto; }
+            .hero-main { margin-bottom: 30px; }
+            .hero-main h1 { font-size: clamp(1.8rem, 10vw, 2.5rem); }
+            .hero-main p { font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 20px; }
+            .btn-action { padding: 14px 35px; font-size: 1rem; }
+            
+            /* 数字统计 */
+            .hero > div:last-of-type { padding: 20px 15px; margin-top: 30px; }
+            .hero > div:last-of-type h3 { font-size: 1.5rem !important; }
+            .hero > div:last-of-type p { font-size: 0.7rem !important; }
+            
+            /* 价格区 */
+            .pricing-section { padding: 50px 15px; }
+            .pricing-section h2 { font-size: 1.5rem; margin-bottom: 25px; }
+            .pricing-grid { gap: 15px; }
+            .price-card { padding: 20px; }
+            .price-card h3 { font-size: 1rem; }
+            .price-card .price { font-size: 1.5rem; }
+            
+            /* 今日特价和倒计时 */
+            #pricing .price-card[style*="gold"] { padding: 15px; }
+            #pricing > div:last-of-type p { font-size: 0.8rem; }
+            
+            /* 好玩功能区 - 3列变1列 */
+            .pricing-section > div[style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: 1fr !important;
+                gap: 12px;
+                padding: 0 5px;
+            }
+            .pricing-section > div[style*="grid-template-columns: repeat(3"] > div {
+                padding: 20px 15px;
+            }
+            .pricing-section > div[style*="grid-template-columns: repeat(3"] h4 {
+                font-size: 0.95rem;
+            }
+            
+            /* 作品区 */
+            .portfolio-section { margin-top: 40px; padding: 0 15px; }
+            .portfolio-tabs { gap: 8px; margin-bottom: 30px; }
+            .tab-btn { padding: 8px 16px; font-size: 0.8rem; }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .portfolio-overlay { padding: 10px; }
+            .portfolio-title { font-size: 0.75rem; }
+            .portfolio-desc { font-size: 0.55rem; }
+            
+            /* 联系区 */
+            .contact { padding: 50px 15px; }
+            .contact-box { grid-template-columns: 1fr; gap: 30px; }
+            .qr-card { max-width: 250px; padding: 15px; }
+            
+            /* 抽奖转盘 */
+            .lottery-section { padding: 40px 15px; }
+            .lottery-wheel { width: 220px; height: 220px; }
+            .lottery-wheel::before { font-size: 2.5rem; }
+            .lottery-prizes { grid-template-columns: repeat(2, 1fr); font-size: 0.75rem; }
+            
+            /* 悬浮按钮 */
+            .float-btn { bottom: 80px; right: 15px; }
+            .float-btn button { width: 50px; height: 50px; font-size: 1.2rem; }
+            
+            /* 弹窗优惠 */
+            .popup-offer { left: 10px; right: 10px; max-width: none; padding: 15px; }
+            
+            /* 在线试玩区 */
+            #tryit { padding: 40px 15px; }
+            #tryit > div[style*="max-width: 900px"] { padding: 20px 15px; }
+            
+            /* 底部 */
+            footer { padding: 25px 15px; font-size: 0.75rem; }
+        }
         
+        /* 超小屏幕 */
+        @media (max-width: 400px) {
+            .hero-main h1 { font-size: 1.6rem; }
+            .btn-action { padding: 12px 25px; font-size: 0.9rem; }
+            .portfolio-grid { gap: 5px; }
+            .lottery-wheel { width: 180px; height: 180px; }
+        }
+
         /* 客户评价滚动 */
         .reviews-section { padding: 60px 20px; background: #0a0a15; overflow: hidden; }
         .reviews-track { display: flex; gap: 20px; animation: scroll 30s linear infinite; }
@@ -107,48 +190,146 @@
         .review-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px; }
         .review-card .author { font-size: 0.8rem; color: var(--accent); }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        
+
         /* 客服悬浮按钮 */
         .float-btn { position: fixed; bottom: 100px; right: 20px; z-index: 999; }
         .float-btn button { width: 60px; height: 60px; border-radius: 50%; border: none; cursor: pointer; font-size: 1.5rem; transition: 0.3s; display: block; margin-top: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
         .float-btn .wechat-btn { background: #07C160; color: white; animation: shake 2s infinite; }
         .float-btn .top-btn { background: var(--accent); color: white; }
         .float-btn button:hover { transform: scale(1.1); }
-        
+
         /* 数字统计 */
         .stats-section { padding: 40px 20px; background: linear-gradient(135deg, #1a1a3a, var(--dark)); }
         .stats-grid { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
         .stat-item h3 { font-size: 2.5rem; color: var(--accent); margin-bottom: 5px; }
         .stat-item p { font-size: 0.8rem; color: var(--text-muted); }
-        
+
         @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
         
-        @media (max-width: 1100px) { .portfolio-grid { grid-template-columns: repeat(4, 1fr); } }
-        @media (max-width: 900px) { .portfolio-grid { grid-template-columns: repeat(3, 1fr); } .contact-box { grid-template-columns: 1fr; } .hero-main h1 { font-size: 2.5rem; } .nav-links { display: none; } }
-        @media (max-width: 600px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .portfolio-tabs { gap: 8px; } .tab-btn { padding: 8px 14px; font-size: 0.8rem; } }
+        /* ===== 手机端全面自适应 ===== */
+        @media (max-width: 768px) {
+            /* 基础布局 */
+            body { font-size: 14px; overflow-x: hidden; }
+            img { max-width: 100%; height: auto; }
+            .hero { padding: 100px 15px 60px; min-height: auto; }
+            .hero-main { margin-bottom: 30px; }
+            .hero-main h1 { font-size: clamp(1.8rem, 10vw, 2.5rem); }
+            .hero-main p { font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 20px; }
+            .btn-action { padding: 14px 35px; font-size: 1rem; }
+            
+            /* 导航 */
+            .nav-links { display: none; }
+            .logo { font-size: clamp(0.9rem, 4vw, 1.2rem); gap: 8px; }
+            .logo img { width: 32px; height: 32px; }
+            
+            /* 统计数字 */
+            .stats-grid, .hero > div:last-child > div { gap: 15px; padding: 0 10px; grid-template-columns: repeat(2, 1fr) !important; }
+            .hero > div:last-child { padding: 20px 15px !important; }
+            .stat-item h3, .hero > div:last-child h3 { font-size: 1.5rem !important; }
+            .stat-item p, .hero > div:last-child p { font-size: 0.7rem !important; }
+            
+            /* 价格卡片 */
+            .pricing-section { padding: 50px 15px; }
+            .pricing-section h2 { font-size: 1.5rem; margin-bottom: 25px; }
+            .pricing-grid { gap: 15px; }
+            .price-card { padding: 20px 15px; }
+            .price-card h3 { font-size: 1rem; }
+            .price-card .price { font-size: 1.5rem; }
+            .price-card li { font-size: 0.85rem; padding: 6px 0; }
+            
+            /* 倒计时 */
+            #countdown { font-size: 1.1rem; }
+            
+            /* 好玩功能入口 - 手机端单列 */
+            .pricing-section > div[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; gap: 12px !important; margin: 30px 15px 0 !important; max-width: none !important; }
+            .pricing-section > div[style*="grid-template-columns: repeat(3"] > div { padding: 20px !important; }
+            .pricing-section > div[style*="grid-template-columns: repeat(3"] > div h4 { font-size: 1rem; }
+            
+            /* 作品集 */
+            .portfolio-section { margin-top: 40px; padding: 0 15px; }
+            .portfolio-tabs { gap: 8px; margin-bottom: 30px; }
+            .tab-btn { padding: 8px 16px; font-size: 0.8rem; }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .portfolio-item { aspect-ratio: 1; }
+            .portfolio-item img { width: 100%; height: 100%; object-fit: cover; }
+            .portfolio-overlay { padding: 10px; }
+            .portfolio-tag { font-size: 0.5rem; }
+            .portfolio-title { font-size: 0.75rem; }
+            .portfolio-desc { font-size: 0.55rem; }
+            
+            /* 联系区 */
+            .contact { padding: 50px 15px; }
+            .contact-box { grid-template-columns: 1fr; gap: 30px; }
+            .contact-box > div:last-child { text-align: center; }
+            .contact-box h2 { font-size: 1.5rem; }
+            .qr-card { max-width: 250px; padding: 15px; }
+            
+            /* 抽奖转盘 */
+            .lottery-section { padding: 40px 15px; }
+            .lottery-wheel { width: 200px; height: 200px; }
+            .lottery-wheel::before { font-size: 2rem; }
+            .lottery-prizes { grid-template-columns: repeat(2, 1fr); font-size: 0.75rem; }
+            
+            /* 悬浮按钮 */
+            .float-btn { bottom: 80px; right: 15px; }
+            .float-btn button { width: 50px; height: 50px; font-size: 1.2rem; }
+            
+            /* 弹窗优惠 */
+            .popup-offer { left: 15px; right: 15px; bottom: 15px; max-width: none; padding: 15px; }
+            
+            /* 回到顶部 */
+            .back-to-top { width: 40px; height: 40px; bottom: 20px; right: 20px; }
+            
+            /* 欢迎提示 */
+            .welcome-toast { top: 70px; right: 10px; left: 10px; padding: 12px 15px; }
+            .welcome-toast h4 { font-size: 0.85rem; }
+            .welcome-toast p { font-size: 0.75rem; }
+            
+            /* 在线试玩区 */
+            #tryit { padding: 40px 15px; }
+            #tryit h2 { font-size: 1.3rem; }
+            
+            /* Footer */
+            footer { padding: 25px 15px; font-size: 0.75rem; }
+            
+            /* 客户好评 */
+            .review-card { min-width: 250px; padding: 15px; }
+            
+            /* 服务保障 */
+            .contact-box + div { padding: 0 15px; }
+        }
+        
+        /* 超小屏幕 */
+        @media (max-width: 375px) {
+            .hero-main h1 { font-size: 1.6rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .stat-item h3 { font-size: 1.3rem; }
+            .portfolio-grid { gap: 8px; }
+            .tab-btn { padding: 6px 12px; font-size: 0.75rem; }
+        }
     </style>
 <style>
         /* 滚动进度条 */
         .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--accent), var(--gold)); z-index: 10000; transition: width 0.1s; }
-        
+
         /* 鼠标光效 */
         .cursor-light { position: fixed; width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle, rgba(233,69,96,0.8) 0%, transparent 70%); pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: screen; }
-        
+
         /* 回到顶部 */
         .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: 0.3s; z-index: 999; box-shadow: 0 5px 20px rgba(233,69,96,0.4); }
         .back-to-top.show { opacity: 1; }
         .back-to-top:hover { transform: scale(1.1); }
-        
+
         /* 欢迎提示 */
         .welcome-toast { position: fixed; top: 80px; right: 20px; background: linear-gradient(135deg, #1a1a3a, #0f0f1e); padding: 15px 25px; border-radius: 12px; border: 1px solid rgba(233,69,96,0.3); z-index: 10001; transform: translateX(400px); transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
         .welcome-toast.show { transform: translateX(0); }
         .welcome-toast h4 { color: var(--accent); margin-bottom: 5px; font-size: 0.9rem; }
         .welcome-toast p { color: var(--text-muted); font-size: 0.8rem; }
-        
+
         /* 背景星星 */
         .star { position: fixed; width: 3px; height: 3px; background: white; border-radius: 50%; opacity: 0; pointer-events: none; animation: twinkle 3s infinite; }
         @keyframes twinkle { 0%, 100% { opacity: 0; } 50% { opacity: 0.8; } }
-        
+
         /* 在线状态 */
         .online-dot { display: inline-block; width: 8px; height: 8px; background: #00ff88; border-radius: 50%; margin-right: 5px; animation: pulse 2s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
@@ -157,69 +338,69 @@
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
     <div class="cursor-light" id="cursorLight"></div>
-    
+
     <!-- 欢迎提示 -->
     <div class="welcome-toast" id="welcomeToast">
         <h4>👋 欢迎来到炫影视觉</h4>
         <p>摄影 · 设计 · P图 · 改稿</p>
     </div>
-    
+
     <!-- 🎮 新增：互动小游戏 - 打地鼠 -->
     <div id="gamePopup" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 10000; align-items: center; justify-content: center;">
-        <div style="text-align: center; padding: 30px;">
-            <h2 style="margin-bottom: 10px;">🎮 打地鼠赢优惠</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">点击地鼠得分，30秒内打中10只送优惠券！</p>
-            <div id="gameScore" style="font-size: 1.5rem; color: var(--gold); margin-bottom: 15px;">得分: 0</div>
-            <div id="gameBoard" style="display: grid; grid-template-columns: repeat(3, 80px); gap: 10px; margin: 0 auto 20px; width: fit-content;"></div>
-            <div id="gameTimer" style="color: var(--accent); margin-bottom: 15px;">剩余时间: 30秒</div>
-            <button onclick="closeGame()" style="background: var(--accent); border: none; color: white; padding: 10px 30px; border-radius: 20px; cursor: pointer;">关闭游戏</button>
+        <div style="text-align: center; padding: 20px; width: 95%; max-width: 350px;">
+            <h2 style="margin-bottom: 10px; font-size: 1.3rem;">🎮 打地鼠赢优惠</h2>
+            <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.9rem;">点击地鼠得分，30秒内打中10只送优惠券！</p>
+            <div id="gameScore" style="font-size: 1.3rem; color: var(--gold); margin-bottom: 12px;">得分: 0</div>
+            <div id="gameBoard" style="display: grid; grid-template-columns: repeat(3, 60px); gap: 8px; margin: 0 auto 15px; width: fit-content;"></div>
+            <div id="gameTimer" style="color: var(--accent); margin-bottom: 12px; font-size: 0.9rem;">剩余时间: 30秒</div>
+            <button onclick="closeGame()" style="background: var(--accent); border: none; color: white; padding: 10px 25px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;">关闭游戏</button>
         </div>
     </div>
-    
+
     <!-- 🎨 新增：AI 随机配色生成器 -->
     <div id="colorPopup" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000; align-items: center; justify-content: center;">
-        <div style="text-align: center; padding: 30px; max-width: 400px;">
-            <h2 style="margin-bottom: 10px;">🎨 配色灵感生成器</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">随机生成好看配色，点击刷新</p>
-            <div id="colorPalette" style="display: flex; gap: 10px; margin-bottom: 20px;"></div>
-            <div id="colorHex" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;"></div>
-            <div style="display: flex; gap: 10px; justify-content: center;">
-                <button onclick="generateColors()" style="background: var(--accent); border: none; color: white; padding: 10px 30px; border-radius: 20px; cursor: pointer;">刷新配色</button>
-                <button onclick="closeColorGen()" style="background: transparent; border: 1px solid white; color: white; padding: 10px 30px; border-radius: 20px; cursor: pointer;">关闭</button>
+        <div style="text-align: center; padding: 20px; max-width: 350px; width: 95%;">
+            <h2 style="margin-bottom: 10px; font-size: 1.3rem;">🎨 配色灵感生成器</h2>
+            <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.9rem;">随机生成好看配色，点击刷新</p>
+            <div id="colorPalette" style="display: flex; gap: 8px; margin-bottom: 15px; justify-content: center;"></div>
+            <div id="colorHex" style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; flex-wrap: wrap;"></div>
+            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <button onclick="generateColors()" style="background: var(--accent); border: none; color: white; padding: 10px 25px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;">刷新配色</button>
+                <button onclick="closeColorGen()" style="background: transparent; border: 1px solid white; color: white; padding: 10px 25px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;">关闭</button>
             </div>
         </div>
     </div>
-    
+
     <!-- 📸 新增：照片滤镜预览 -->
     <div id="filterPopup" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000; align-items: center; justify-content: center; overflow-y: auto;">
-        <div style="text-align: center; padding: 30px; max-width: 500px; width: 90%;">
-            <h2 style="margin-bottom: 10px;">📸 滤镜预览</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">上传照片，一键体验滤镜效果</p>
-            
+        <div style="text-align: center; padding: 20px; max-width: 400px; width: 95%;">
+            <h2 style="margin-bottom: 10px; font-size: 1.3rem;">📸 滤镜预览</h2>
+            <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.9rem;">上传照片，一键体验滤镜效果</p>
+
             <!-- 上传区域 -->
-            <div id="filterUploadArea" onclick="document.getElementById('filterFileInput').click()" style="border: 2px dashed rgba(255,255,255,0.3); border-radius: 12px; padding: 30px; margin-bottom: 20px; cursor: pointer; transition: 0.3s;">
+            <div id="filterUploadArea" onclick="document.getElementById('filterFileInput').click()" style="border: 2px dashed rgba(255,255,255,0.3); border-radius: 12px; padding: 25px 15px; margin-bottom: 15px; cursor: pointer; transition: 0.3s;">
                 <input type="file" id="filterFileInput" accept="image/*" style="display: none;" onchange="handleFilterUpload(event)">
-                <div style="font-size: 2rem; margin-bottom: 10px;">📷</div>
-                <p style="color: var(--text-muted);">点击上传照片</p>
+                <div style="font-size: 2rem; margin-bottom: 8px;">📷</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">点击上传照片</p>
             </div>
-            
+
             <!-- 图片预览 -->
             <div id="filterPreviewArea" style="display: none;">
-                <img id="demoImg" src="" style="max-width: 100%; max-height: 350px; border-radius: 12px; margin-bottom: 15px;">
-                
+                <img id="demoImg" src="" style="max-width: 100%; max-height: 280px; border-radius: 12px; margin-bottom: 12px;">
+
                 <!-- 滤镜按钮 -->
-                <div id="filterButtons" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 15px;"></div>
-                
-                <div style="display: flex; gap: 10px; justify-content: center;">
-                    <button onclick="downloadFilteredImage()" style="background: var(--accent); border: none; color: white; padding: 10px 20px; border-radius: 20px; cursor: pointer;">下载图片</button>
-                    <button onclick="resetFilterUpload()" style="background: transparent; border: 1px solid white; color: white; padding: 10px 20px; border-radius: 20px; cursor: pointer;">换一张</button>
+                <div id="filterButtons" style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 12px;"></div>
+
+                <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                    <button onclick="downloadFilteredImage()" style="background: var(--accent); border: none; color: white; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-size: 0.85rem;">下载图片</button>
+                    <button onclick="resetFilterUpload()" style="background: transparent; border: 1px solid white; color: white; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-size: 0.85rem;">换一张</button>
                 </div>
             </div>
-            
+
             <button onclick="closeFilterDemo()" style="margin-top: 20px; background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--text-muted); padding: 8px 20px; border-radius: 20px; cursor: pointer;">关闭</button>
         </div>
     </div>
-    
+
     <!-- 回到顶部 -->
     <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
         <span style="font-size: 1.5rem;">↑</span>
@@ -234,20 +415,20 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- 💡 悬浮按钮 -->
     <div class="float-btn">
         <button class="wechat-btn" onclick="orderService('微信咨询')" title="微信咨询">💬</button>
         <button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</button>
     </div>
-    
+
     <section class="hero">
         <div class="hero-main">
             <h1>你好，我是<span>皮蛋哥</span></h1>
             <p>摄影 · 设计 · P图 · 改稿</p>
             <a href="#pricing" class="btn-action">立即下单</a>
         </div>
-        
+
         <!-- 💡 新增：数字统计 -->
         <div style="width: 100%; max-width: 900px; margin-top: 40px; padding: 30px; background: rgba(255,255,255,0.03); border-radius: 16px;">
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center;">
@@ -270,7 +451,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- 价格区 -->
     <section class="pricing-section" id="pricing">
         <h2>服务报价</h2>
@@ -315,7 +496,7 @@
                 </ul>
                 <button class="order-btn" onclick="orderService('改稿速修')">立即下单</button>
             </div>
-            
+
             <!-- 💡 新增：今日特价卡片 -->
             <div class="price-card" style="border: 2px solid var(--gold); position: relative; overflow: hidden; animation: pulse 2s infinite;">
                 <div style="position: absolute; top: 12px; right: -25px; background: var(--gold); color: #000; padding: 4px 35px; font-size: 0.65rem; font-weight: bold; transform: rotate(45deg);">限时</div>
@@ -329,12 +510,12 @@
                 <button class="order-btn" onclick="orderService('今日特价-证件照')" style="background: linear-gradient(135deg, var(--gold), #e76f51);">🔥 抢购优惠</button>
             </div>
         </div>
-        
+
         <!-- 💡 倒计时 -->
         <div style="text-align: center; margin-top: 25px;">
             <p style="color: var(--gold); font-size: 0.9rem;">⏰ 今日特价剩余：<span id="countdown" style="font-size: 1.3rem; font-weight: bold; color: var(--accent);">--:--:--</span></p>
         </div>
-        
+
         <!-- 🎮 好玩的功能入口 -->
         <div style="max-width: 900px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
             <div onclick="openGame()" style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 25px; border-radius: 16px; text-align: center; cursor: pointer; transition: transform 0.3s;">
@@ -354,7 +535,7 @@
             </div>
         </div>
     </section>
-    
+
     <section class="portfolio-section" id="portfolio">
         <div style="text-align: center; margin-bottom: 50px;">
             <h2 style="font-family: var(--font-serif); font-size: clamp(1.8rem, 6vw, 2.8rem); margin-bottom: 15px;">精选作品</h2>
@@ -379,7 +560,7 @@
             <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p08.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">年会盛典</h4><p class="portfolio-desc">年会拍摄</p></div></div>
             <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p09.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">婚礼跟拍</h4><p class="portfolio-desc">纪实</p></div></div>
             <div class="portfolio-item" data-category="photography"><img src="images/portfolio/photography/p10.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Photography</span><h4 class="portfolio-title">产品摄影</h4><p class="portfolio-desc">电商</p></div></div>
-            
+
             <!-- 设计 10张 -->
             <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d01.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">电商海报</h4><p class="portfolio-desc">主图</p></div></div>
             <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d02.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">促销海报</h4><p class="portfolio-desc">双11</p></div></div>
@@ -391,7 +572,7 @@
             <div class="portfolio-item" data-category="design"><img src="images/portfolio/design/d10.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">菜单设计</h4><p class="portfolio-desc">餐饮</p></div></div>
             <div class="portfolio-item" data-category="design"><img src="images/portfolio/02-brand-design.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">品牌设计</h4><p class="portfolio-desc">全案</p></div></div>
             <div class="portfolio-item" data-category="design"><img src="images/portfolio/07-poster.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Design</span><h4 class="portfolio-title">宣传海报</h4><p class="portfolio-desc">活动</p></div></div>
-            
+
             <!-- P图精修 10张 -->
             <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/zhengjianzhao.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">证件照精修</h4><p class="portfolio-desc">换装</p></div></div>
             <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/renxiang.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">人像精修</h4><p class="portfolio-desc">磨皮</p></div></div>
@@ -403,7 +584,7 @@
             <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/jingxiu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">精修</h4><p class="portfolio-desc">人像</p></div></div>
             <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/chuchu.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">擦除</h4><p class="portfolio-desc">去物体</p></div></div>
             <div class="portfolio-item" data-category="retouch"><img src="images/portfolio/retouch-new/fengge.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Retouch</span><h4 class="portfolio-title">风格化</h4><p class="portfolio-desc">动漫</p></div></div>
-            
+
             <!-- 改稿速修 10张 -->
             <div class="portfolio-item" data-category="revision"><img src="images/portfolio/revision/v01.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">PPT改稿</h4><p class="portfolio-desc">美化</p></div></div>
             <div class="portfolio-item" data-category="revision"><img src="images/portfolio/09-fix.jpg" alt=""><div class="portfolio-overlay"><span class="portfolio-tag">Revision</span><h4 class="portfolio-title">老照片修复</h4><p class="portfolio-desc">修复</p></div></div>
@@ -422,7 +603,7 @@
     <section class="pricing-section" id="tryit">
         <h2 style="text-align: center; font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 20px;">🎮 在线试玩</h2>
         <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">上传图片，在线体验修图效果（免费试用）</p>
-        
+
         <div style="max-width: 900px; margin: 0 auto; background: #151525; border-radius: 16px; padding: 30px;">
             <!-- 上传区域 -->
             <div id="uploadArea" style="border: 2px dashed rgba(255,255,255,0.2); border-radius: 12px; padding: 40px; text-align: center; cursor: pointer; transition: 0.3s;" onclick="document.getElementById('fileInput').click()">
@@ -430,13 +611,13 @@
                 <div style="font-size: 3rem; margin-bottom: 15px;">📷</div>
                 <p style="color: var(--text-muted);">点击上传图片 或 拖拽图片到这里</p>
             </div>
-            
+
             <!-- 预览和滤镜 -->
             <div id="previewArea" style="display: none;">
                 <div style="text-align: center; margin-bottom: 20px;">
                     <img id="previewImg" style="max-width: 100%; max-height: 400px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);" alt="预览">
                 </div>
-                
+
                 <!-- 滤镜按钮 -->
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px;">
                     <button class="tab-btn" onclick="applyFilter('none')">原图</button>
@@ -450,7 +631,7 @@
                     <button class="tab-btn" onclick="applyFilter('blur(3px)')">模糊</button>
                     <button class="tab-btn" onclick="applyFilter('invert(100%)')">反色</button>
                 </div>
-                
+
                 <!-- 滑块调节 -->
                 <div style="max-width: 500px; margin: 0 auto 20px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px;">
                     <div style="margin-bottom: 15px;">
@@ -466,44 +647,44 @@
                         <input type="range" id="saturate" min="0" max="200" value="100" style="width: 100%;" oninput="updateManual()">
                     </div>
                 </div>
-                
+
                 <div style="text-align: center;">
                     <button class="tab-btn" onclick="resetFilters()">重置</button>
                     <button class="btn-action" style="padding: 12px 30px; font-size: 1rem; border-radius: 30px;" onclick="downloadImage()">下载图片</button>
                 </div>
             </div>
         </div>
-        
+
         <p style="text-align: center; color: var(--gold); margin-top: 20px; font-size: 0.85rem;">
             💡 提示：点击滤镜按钮实时预览，滑动滑块精细调节
         </p>
-        
+
         <!-- 今日优惠 -->
         <div style="max-width: 900px; margin: 30px auto 0; padding: 25px; background: linear-gradient(135deg, rgba(233,69,96,0.2), rgba(244,162,97,0.1)); border-radius: 16px; border: 1px solid rgba(233,69,96,0.3); text-align: center;">
             <p style="color: var(--accent); font-size: 1.2rem; margin-bottom: 10px;">🎁 今日限时优惠</p>
             <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 5px;">首单立减 <span style="color: var(--gold); font-size: 2rem;">20%</span></p>
             <p style="color: var(--text-muted); font-size: 0.85rem;">添加微信备注「网站优惠」即可享受</p>
         </div>
-        
+
         <!-- 客户好评 -->
         <div style="max-width: 900px; margin: 40px auto 0;">
             <h3 style="text-align: center; font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px;">💬 客户好评</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
                 <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border-left: 3px solid var(--accent);">
                     <p style="font-size: 0.9rem; margin-bottom: 8px;">"修图速度超快，质量也很好！"</p>
-                    <p style="color: var(--text-muted); font-size: 0.75rem;">— 淘宝店主 小美</p>
+                    <p style="color: var(--text-muted); font-size: 0.75rem;">- 淘宝店主 小美</p>
                 </div>
                 <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border-left: 3px solid var(--gold);">
                     <p style="font-size: 0.9rem; margin-bottom: 8px;">"证件照修得自然，不像网红脸"</p>
-                    <p style="color: var(--text-muted); font-size: 0.75rem;">— 大学生 阿杰</p>
+                    <p style="color: var(--text-muted); font-size: 0.75rem;">- 大学生 阿杰</p>
                 </div>
                 <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border-left: 3px solid #00ff88;">
                     <p style="font-size: 0.9rem; margin-bottom: 8px;">"老照片修复太牛了，感动！"</p>
-                    <p style="color: var(--text-muted); font-size: 0.75rem;">— 设计师 老王</p>
+                    <p style="color: var(--text-muted); font-size: 0.75rem;">- 设计师 老王</p>
                 </div>
             </div>
         </div>
-        
+
         <!-- 服务保障 -->
         <div style="max-width: 900px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; text-align: center;">
             <div>
@@ -528,7 +709,7 @@
             </div>
         </div>
     </section>
-    
+
     <section class="contact" id="contact">
         <div class="contact-box">
             <div class="qr-card"><img src="images/wechat-qr.jpg" alt="微信二维码"><p style="margin-top: 15px; color: #111; font-weight: bold;">扫码添加微信</p></div>
@@ -542,11 +723,11 @@
             </div>
         </div>
     </section>
-    
+
     <footer>
         <p>© 2026 深圳市炫影视觉工作室 | All Rights Reserved</p>
     </footer>
-    
+
     <!-- 💡 抽奖转盘 -->
     <section class="lottery-section" id="lottery">
         <h2 style="font-family: var(--font-serif); font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 10px;">🎰 幸运抽奖</h2>
@@ -560,7 +741,7 @@
         </div>
         <p style="color: var(--gold); font-size: 0.85rem;">💡 中奖后添加微信领取优惠</p>
     </section>
-    
+
     <!-- 💡 弹窗优惠 -->
     <div class="popup-offer" id="popupOffer">
         <button class="close-btn" onclick="closePopup()">×</button>
@@ -568,7 +749,7 @@
         <p style="font-size: 0.9rem; margin-bottom: 10px;" id="popupText">新客户首单立减20%</p>
         <button onclick="orderService('新客优惠')" style="background: white; color: var(--accent); border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold;">立即领取</button>
     </div>
-    
+
     <div class="lightbox" id="orderLightbox">
         <span class="lightbox-close" onclick="closeOrder()">&times;</span>
         <div style="text-align: center; padding: 40px;">
@@ -578,7 +759,7 @@
             <p style="color: var(--gold); margin-top: 20px;">微信号：224237205</p>
         </div>
     </div>
-    
+
     <div class="lightbox" id="imgLightbox">
         <span class="lightbox-close">&times;</span>
         <img src="" alt="">
@@ -599,10 +780,10 @@
                 });
             });
         });
-        
+
         // 复制微信号
         function copyId() { navigator.clipboard.writeText('224237205').then(() => { alert('✅ 微信号已复制，请前往微信添加皮蛋哥！'); }); }
-        
+
         // 下单功能
         function orderService(serviceName) {
             document.getElementById('orderServiceName').textContent = serviceName;
@@ -611,7 +792,7 @@
         function closeOrder() {
             document.getElementById('orderLightbox').classList.remove('active');
         }
-        
+
         // 图片弹窗
         const imgLightbox = document.getElementById('imgLightbox');
         document.querySelectorAll('.portfolio-item').forEach(item => {
@@ -623,7 +804,7 @@
         });
         imgLightbox.querySelector('.lightbox-close').addEventListener('click', () => imgLightbox.classList.remove('active'));
         imgLightbox.addEventListener('click', e => { if (e.target === imgLightbox) imgLightbox.classList.remove('active'); });
-        
+
         // 💡 数字动画
         function animateNumber(id, target, suffix = '') {
             let current = 0;
@@ -640,7 +821,7 @@
             animateNumber('stat3', 99.8, '%');
             animateNumber('stat4', 7300, '+');
         }, 500);
-        
+
         // 💡 倒计时
         function updateCountdown() {
             const now = new Date();
@@ -650,19 +831,19 @@
             const h = Math.floor(diff / 3600000);
             const m = Math.floor((diff % 3600000) / 60000);
             const s = Math.floor((diff % 60000) / 1000);
-            document.getElementById('countdown').textContent = 
+            document.getElementById('countdown').textContent =
                 `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
         }
         updateCountdown();
         setInterval(updateCountdown, 1000);
-        
+
         // 在线试玩功能
         let originalImage = null;
-        
+
         function handleFileUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
-            
+
             const reader = new FileReader();
             reader.onload = function(e) {
                 originalImage = e.target.result;
@@ -673,7 +854,7 @@
             };
             reader.readAsDataURL(file);
         }
-        
+
         function applyFilter(filter) {
             document.getElementById('previewImg').style.filter = filter;
             // 重置滑块
@@ -684,7 +865,7 @@
             document.getElementById('contrastVal').textContent = '100%';
             document.getElementById('saturateVal').textContent = '100%';
         }
-        
+
         function updateManual() {
             const bright = document.getElementById('brightness').value;
             const contrast = document.getElementById('contrast').value;
@@ -694,7 +875,7 @@
             document.getElementById('saturateVal').textContent = saturate + '%';
             document.getElementById('previewImg').style.filter = `brightness(${bright}%) contrast(${contrast}%) saturate(${saturate}%)`;
         }
-        
+
         function resetFilters() {
             document.getElementById('brightness').value = 100;
             document.getElementById('contrast').value = 100;
@@ -704,27 +885,27 @@
             document.getElementById('saturateVal').textContent = '100%';
             document.getElementById('previewImg').style.filter = 'none';
         }
-        
+
         function downloadImage() {
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
             const img = document.getElementById('previewImg');
             canvas.width = img.naturalWidth;
             canvas.height = img.naturalHeight;
-            
+
             const bright = document.getElementById('brightness').value / 100;
             const contrast = document.getElementById('contrast').value / 100;
             const saturate = document.getElementById('saturate').value / 100;
-            
+
             ctx.filter = `brightness(${bright}) contrast(${contrast}) saturate(${saturate})`;
             ctx.drawImage(img, 0, 0);
-            
+
             const link = document.createElement('a');
             link.download = 'pidan-edit.jpg';
             link.href = canvas.toDataURL('image/jpeg', 0.9);
             link.click();
         }
-        
+
         // 拖拽上传
         const uploadArea = document.getElementById('uploadArea');
         uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.style.borderColor = 'var(--accent)'; });
@@ -738,14 +919,14 @@
                 handleFileUpload({ target: { files: [file] } });
             }
         });
-        
+
         // 滚动进度条
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById('scrollProgress').style.width = scrolled + '%';
-            
+
             // 回到顶部按钮
             if (winScroll > 500) {
                 document.getElementById('backToTop').classList.add('show');
@@ -753,20 +934,20 @@
                 document.getElementById('backToTop').classList.remove('show');
             }
         });
-        
+
         // 鼠标光效
         document.addEventListener('mousemove', e => {
             const light = document.getElementById('cursorLight');
             light.style.left = e.clientX + 'px';
             light.style.top = e.clientY + 'px';
         });
-        
+
         // 欢迎提示
         setTimeout(() => {
             document.getElementById('welcomeToast').classList.add('show');
             setTimeout(() => document.getElementById('welcomeToast').classList.remove('show'), 5000);
         }, 1000);
-        
+
         // 背景星星
         for (let i = 0; i < 30; i++) {
             const star = document.createElement('div');
@@ -777,23 +958,23 @@
             star.style.animationDuration = (2 + Math.random() * 3) + 's';
             document.body.appendChild(star);
         }
-        
+
         // 💡 抽奖转盘
         let isSpinning = false;
         let hasSpun = localStorage.getItem('hasSpun');
         const prizes = ['5折优惠券', '8折优惠券', '免费精修1张', '神秘小礼品', '9折优惠券', '免单机会', '7折优惠券', '6折优惠券'];
-        
+
         function spinWheel() {
             if (isSpinning) return;
             if (hasSpun) { alert('您已抽过奖啦，添加微信领取优惠吧！'); return; }
-            
+
             isSpinning = true;
             const wheel = document.getElementById('lotteryWheel');
             const prizeIndex = Math.floor(Math.random() * 8);
             const deg = 1440 + prizeIndex * 45 + 22.5; // 4圈 + 停在奖品位置
-            
+
             wheel.style.transform = `rotate(${deg}deg)`;
-            
+
             setTimeout(() => {
                 isSpinning = false;
                 hasSpun = true;
@@ -801,7 +982,7 @@
                 alert(`🎉 恭喜获得：${prizes[prizeIndex]}\n\n添加微信备注「抽奖」即可领取！`);
             }, 4000);
         }
-        
+
         // 💡 弹窗优惠（5秒后出现）
         setTimeout(() => {
             if (!localStorage.getItem('popupShown')) {
@@ -809,16 +990,16 @@
                 localStorage.setItem('popupShown', 'true');
             }
         }, 5000);
-        
+
         function closePopup() {
             document.getElementById('popupOffer').classList.remove('show');
         }
-        
+
         // 🎮 打地鼠游戏
         let gameScore = 0;
         let gameTimer = null;
         let gameTime = 30;
-        
+
         function openGame() {
             document.getElementById('gamePopup').style.display = 'flex';
             gameScore = 0;
@@ -840,7 +1021,7 @@
             }, 1000);
             spawnMole();
         }
-        
+
         function initGameBoard() {
             const board = document.getElementById('gameBoard');
             board.innerHTML = '';
@@ -852,7 +1033,7 @@
                 board.appendChild(hole);
             }
         }
-        
+
         function spawnMole() {
             if (gameTime <= 0) return;
             const holes = document.querySelectorAll('#gameBoard > div');
@@ -861,7 +1042,7 @@
             holes[random].textContent = '🐹';
             setTimeout(spawnMole, 800 + Math.random() * 400);
         }
-        
+
         function hitMole(hole) {
             if (hole.textContent === '🐹') {
                 gameScore++;
@@ -870,18 +1051,18 @@
                 setTimeout(() => hole.textContent = '', 200);
             }
         }
-        
+
         function closeGame() {
             document.getElementById('gamePopup').style.display = 'none';
             clearInterval(gameTimer);
         }
-        
+
         // 🎨 配色生成器
         function openColorGen() {
             document.getElementById('colorPopup').style.display = 'flex';
             generateColors();
         }
-        
+
         function generateColors() {
             const palette = document.getElementById('colorPalette');
             const hexDiv = document.getElementById('colorHex');
@@ -899,11 +1080,11 @@
                 hexDiv.appendChild(hex);
             }
         }
-        
+
         function closeColorGen() {
             document.getElementById('colorPopup').style.display = 'none';
         }
-        
+
         // 📸 滤镜预览
         const filters = [
             { name: '原图', value: 'none' },
@@ -919,7 +1100,7 @@
         ];
         let currentFilter = 'none';
         let filterImageSrc = null;
-        
+
         function openFilterDemo() {
             document.getElementById('filterPopup').style.display = 'flex';
             const btnDiv = document.getElementById('filterButtons');
@@ -935,7 +1116,7 @@
                 btnDiv.appendChild(btn);
             });
         }
-        
+
         function handleFilterUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -948,14 +1129,14 @@
             };
             reader.readAsDataURL(file);
         }
-        
+
         function resetFilterUpload() {
             document.getElementById('filterUploadArea').style.display = 'block';
             document.getElementById('filterPreviewArea').style.display = 'none';
             document.getElementById('demoImg').style.filter = 'none';
             currentFilter = 'none';
         }
-        
+
         function downloadFilteredImage() {
             const img = document.getElementById('demoImg');
             const canvas = document.createElement('canvas');
@@ -969,7 +1150,7 @@
             link.href = canvas.toDataURL('image/jpeg', 0.9);
             link.click();
         }
-        
+
         function closeFilterDemo() {
             document.getElementById('filterPopup').style.display = 'none';
         }
